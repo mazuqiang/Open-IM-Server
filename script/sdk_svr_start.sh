@@ -14,8 +14,6 @@ list_to_string $list2
 ws_ports=($ports_array)
 list_to_string $list3
 sdk_ws_ports=($ports_array)
-list_to_string $list4
-cms_ports=($ports_array)
 
 
 
@@ -29,7 +27,7 @@ fi
 #Waiting port recycling
 sleep 1
 cd ${sdk_server_binary_root}
-  nohup ./${sdk_server_name} -openIM_api_port ${api_ports[0]} -openIM_ws_port ${ws_ports[0]} -sdk_ws_port ${sdk_ws_ports[0]} -openIM_cms_api_port ${cms_ports[0]} -openIM_log_level ${logLevel} >>../logs/openIM.log 2>&1 &
+  nohup ./${sdk_server_name} -openIM_api_port ${api_ports[0]} -openIM_ws_port ${ws_ports[0]} -sdk_ws_port ${sdk_ws_ports[0]} -openIM_log_level ${logLevel} >>../logs/openIM.log 2>&1 &
 
 #Check launched service process
 sleep 3
