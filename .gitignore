@@ -6,7 +6,7 @@ logs
 out-test
 .github
 .idea
-.vendor
+vendor
 
 
 deploy/open_im_demo
