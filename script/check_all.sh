@@ -27,8 +27,8 @@ service_port_name=(
 switch=$(cat $config_path | grep demoswitch |awk -F '[:]' '{print $NF}')
 for i in ${service_port_name[*]}; do
   if [ ${switch} != "true" ]; then
-    if [ ${i} == "openImDemoPort"]; then
-             continue
+    if [ ${i} == "openImDemoPort" ]; then
+        continue
     fi
   fi
   list=$(cat $config_path | grep -w ${i} | awk -F '[:]' '{print $NF}')
@@ -38,6 +38,7 @@ for i in ${service_port_name[*]}; do
     if [[ ${port} -ne ${j} ]]; then
       echo -e ${YELLOW_PREFIX}${i}${COLOR_SUFFIX}${RED_PREFIX}" service does not start normally,not initiated port is "${COLOR_SUFFIX}${YELLOW_PREFIX}${j}${COLOR_SUFFIX}
       echo -e ${RED_PREFIX}"please check ../logs/openIM.log "${COLOR_SUFFIX}
+      # shellcheck disable=SC2242
       exit -1
     else
       echo -e ${j}${GREEN_PREFIX}" port has been listening,belongs service is "${i}${COLOR_SUFFIX}
@@ -51,8 +52,9 @@ if [ $check -eq ${msg_transfer_service_num} ]; then
   echo -e ${GREEN_PREFIX}"none  port has been listening,belongs service is openImMsgTransfer"${COLOR_SUFFIX}
 else
   echo -e ${RED_PREFIX}"openImMsgTransfer service does not start normally, num err"${COLOR_SUFFIX}
-        echo -e ${RED_PREFIX}"please check ../logs/openIM.log "${COLOR_SUFFIX}
-      exit -1
+  echo -e ${RED_PREFIX}"please check ../logs/openIM.log "${COLOR_SUFFIX}
+  # shellcheck disable=SC2242
+  exit -1
 fi
 
 

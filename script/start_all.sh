@@ -24,6 +24,7 @@ for i in ${need_to_start_server_shell[*]}; do
   chmod +x $i
   ./$i
     if [ $? -ne 0 ]; then
+        # shellcheck disable=SC2242
         exit -1
   fi
 done

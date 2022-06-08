@@ -64,6 +64,7 @@ func (ws *WServer) msgParse(conn *UserConn, binaryMsg []byte) {
 	}
 	log.NewInfo("", "goroutine num is ", runtime.NumGoroutine())
 }
+
 func (ws *WServer) getSeqReq(conn *UserConn, m *Req) {
 	log.NewInfo(m.OperationID, "Ws call success to getNewSeq", m.MsgIncr, m.SendID, m.ReqIdentifier, m.Data)
 	rpcReq := pbChat.GetMaxAndMinSeqReq{}
