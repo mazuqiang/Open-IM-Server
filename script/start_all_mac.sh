@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#fixme This script is the total startup script
+#fixme The full name of the shell script that needs to be started is placed in the need_to_start_server_shell array
+
+#fixme Put the shell script name here
+need_to_start_server_shell=(
+  start_rpc_service_mac.sh
+  msg_gateway_start_mac.sh
+  push_start_mac.sh
+  msg_transfer_start_mac.sh
+  sdk_svr_start_mac.sh
+  demo_svr_start_mac.sh
+)
+time=`date +"%Y-%m-%d %H:%M:%S"`
+echo "==========================================================">>../logs/openIM.log 2>&1 &
+echo "==========================================================">>../logs/openIM.log 2>&1 &
+echo "==========================================================">>../logs/openIM.log 2>&1 &
+echo "==========server start time:${time}===========">>../logs/openIM.log 2>&1 &
+echo "==========================================================">>../logs/openIM.log 2>&1 &
+echo "==========================================================">>../logs/openIM.log 2>&1 &
+echo "==========================================================">>../logs/openIM.log 2>&1 &
+
+for i in ${need_to_start_server_shell[*]}; do
+  chmod +x $i
+  ./$i
+    if [ $? -ne 0 ]; then
+        # shellcheck disable=SC2242
+        exit -1
+  fi
+done
