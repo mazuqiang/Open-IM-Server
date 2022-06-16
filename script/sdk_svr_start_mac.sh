@@ -39,10 +39,10 @@ sleep 1
 # shellcheck disable=SC2164
 # shellcheck disable=SC2154
 cd "${sdk_server_binary_root}"
-nohup ./${sdk_server_name} -openIM_api_port ${api_ports[0]} -openIM_ws_port ${ws_ports[0]} -sdk_ws_port ${sdk_ws_ports[0]} -openIM_log_level ${logLevel} >>../logs/openIM.log 2>&1 &
+nohup ./${sdk_server_name} -openIM_api_port ${api_ports[0]} -openIM_ws_port ${ws_ports[0]} -sdk_ws_port ${sdk_ws_ports[0]} -openIM_log_level ${logLevel} >>../logs/sdk_svr_start_mac.log 2>&1 &
 
 #Check launched service process
-sleep 120
+sleep 3
 # shellcheck disable=SC2009
 # shellcheck disable=SC2126
 

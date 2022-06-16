@@ -33,10 +33,10 @@ sleep 1
 cd "${demo_server_binary_root}"
 
 for ((i = 0; i < ${#api_ports[@]}; i++)); do
-  nohup ./"${demo_server_name}" -port "${api_ports[$i]}" >>../logs/openIM.log 2>&1 &
+  nohup ./"${demo_server_name}" -port "${api_ports[$i]}" >>../logs/demo_svr_start_mac.log 2>&1 &
 done
 
-sleep 120
+sleep 3
 #Check launched service process
 # shellcheck disable=SC2126
 # shellcheck disable=SC2009

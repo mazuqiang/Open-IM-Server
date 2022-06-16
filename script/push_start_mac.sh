@@ -28,10 +28,10 @@ sleep 1
 cd "${push_binary_root}"
 
 for ((i = 0; i < ${#rpc_ports[@]}; i++)); do
-  nohup ./"${push_name}" -port "${rpc_ports[$i]}" >>../logs/openIM.log 2>&1 &
+  nohup ./"${push_name}" -port "${rpc_ports[$i]}" >>../logs/push_start_mac.log 2>&1 &
 done
 
-sleep 60
+sleep 3
 #Check launched service process
 # shellcheck disable=SC2009
 # shellcheck disable=SC2126

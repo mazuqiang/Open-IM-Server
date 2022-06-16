@@ -40,11 +40,11 @@ sleep 1
 cd "${msg_gateway_binary_root}"
 for ((i = 0; i < ${#ws_ports[@]}; i++)); do
 #   shellcheck disable=SC2086
-  nohup ./"${msg_gateway_name}" -rpc_port ${rpc_ports[$i]} -ws_port "${ws_ports[$i]}" >>../logs/openIM.log 2>&1 &
+  nohup ./"${msg_gateway_name}" -rpc_port ${rpc_ports[$i]} -ws_port "${ws_ports[$i]}" >>../logs/msg_gateway_start_mac.log 2>&1 &
 done
 
 #Check launched service process
-sleep 121
+sleep 3
 # shellcheck disable=SC2009
 # shellcheck disable=SC2126
 check=$(ps -afx | grep -w ./"${msg_gateway_name}" | grep -v grep | wc -l)

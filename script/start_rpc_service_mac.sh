@@ -66,17 +66,17 @@ for ((i = 0; i < ${#service_filename[*]}; i++)); do
   for j in ${ports_array}; do
     #Start the service in the background
     #    ./${service_filename[$i]} -port $j &
-    nohup ./${service_filename[$i]} -port $j >>../logs/openIM.log 2>&1 &
+    nohup ./${service_filename[$i]} -port $j >>../logs/start_rpc_service_mac.log 2>&1 &
     sleep 1
   done
 
 done
 
 
-sleep 120
+sleep 3
 for ((i = 0; i < ${#service_filename[*]}; i++)); do
   # shellcheck disable=SC2002
-  portList=$(cat "$config_path" | grep "${service_port_name[$i]}" | awk -F '[:]' '{print $NF}')
+  portList=$(cat "$config_path" | grep ${service_port_name[$i]} | awk -F '[:]' '{print $NF}')
   list_to_string "${portList}"
 
   for j in ${ports_array}; do
